@@ -23,7 +23,7 @@ class BetterPlayerController {
   static const String _authorizationHeader = "Authorization";
 
   ///General configuration used in controller instance.
-  final BetterPlayerConfiguration betterPlayerConfiguration;
+  BetterPlayerConfiguration betterPlayerConfiguration;
 
   ///Playlist configuration used in controller instance.
   final BetterPlayerPlaylistConfiguration? betterPlayerPlaylistConfiguration;
@@ -1280,6 +1280,11 @@ class BetterPlayerController {
     }
   }
 
+  /// [isDisposed] is get disposed
+  bool isDisposed() {
+    return _disposed;
+  }
+
   ///Dispose BetterPlayerController. When [forceDispose] parameter is true, then
   ///autoDispose parameter will be overridden and controller will be disposed
   ///(if it wasn't disposed before).
@@ -1305,5 +1310,10 @@ class BetterPlayerController {
       ///Delete files async
       _tempFiles.forEach((file) => file.delete());
     }
+  }
+
+  /// [setAutoDispose] is manually change [autoDispose]
+  void setAutoDispose({bool autoDispose = false}) {
+    this.betterPlayerConfiguration = this.betterPlayerConfiguration.copyWith(autoDispose: autoDispose);
   }
 }
