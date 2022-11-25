@@ -1316,4 +1316,9 @@ class BetterPlayerController {
   void setAutoDispose({bool autoDispose = false}) {
     this.betterPlayerConfiguration = this.betterPlayerConfiguration.copyWith(autoDispose: autoDispose);
   }
+  
+  /// [setEnableFullscreen] is manually change [enableFullscreen]
+  void setEnableFullscreen({bool enableFullscreen = false}) {
+    this.betterPlayerConfiguration = this.betterPlayerConfiguration.copyWith(enableFullscreen: enableFullscreen);
+  }
 }
