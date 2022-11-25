@@ -314,7 +314,7 @@ class DataSource {
     } else if (package != null && package!.isNotEmpty) {
       result = "$package:$asset";
     } else {
-      result = asset;
+      result = asset.toString();
     }
 
     if (formatHint != null) {
